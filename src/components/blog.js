@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -20,6 +20,8 @@ import Container from "@material-ui/core/Container";
 import Markdown from "./markdown";
 import Cookies from "js-cookie";
 import { connect } from "react-redux";
+
+import { userIdName } from "../actions/index";
 import AddBlogByUser from "./addBlog";
 
 function Copyright() {
@@ -152,17 +154,21 @@ const posts = [""];
 // const social = ['GitHub', 'Twitter', 'Facebook'];
 
 function mapStateToProps(state) {
-  console.log(state, "state");
-
+  // console.log(state, "state");
   return { userData: state.getUserName.userData };
 }
 
 function Blog(props) {
+  const { userIdName } = props;
   const classes = useStyles();
-  console.log(props);
+
+  useEffect(() => {
+    userIdName();
+  }, [userIdName]);
+
   function logout() {
     Cookies.remove("token");
-    window.location.reload();
+    // window.location.reload();
   }
   return (
     <React.Fragment>
@@ -369,4 +375,7 @@ function Blog(props) {
   );
 }
 
-export default connect(mapStateToProps)(Blog);
+export default connect(
+  mapStateToProps,
+  { userIdName }
+)(Blog);

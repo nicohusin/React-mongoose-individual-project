@@ -5,7 +5,7 @@ export const Register = (values, history) => {
   Axios.post(`http://localhost:3333/user`, values)
     .then(result => {
       history.push("/signin");
-      console.log(result);
+      // console.log(result);
     })
     .catch(error => {
       console.log(error);
@@ -22,7 +22,7 @@ export const Login = (values, history) => {
     .then(result => {
       Cookie.set("token", result.data.token);
       history.push("/");
-      window.location.reload();
+      // window.location.reload();
     })
     .catch(error => {
       console.log(error);
@@ -39,7 +39,7 @@ export const userIdName = () => {
       headers: { token: Cookie.get("token") }
     })
       .then(result => {
-        console.log(result, "RESULT");
+        // console.log(result, "RESULT");
 
         dispatch({
           type: "GET_USER",

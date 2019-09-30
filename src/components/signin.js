@@ -66,7 +66,7 @@ function SignIn(props) {
   });
 
   function handleSubmit(event) {
-    console.log('props', props)
+    // console.log('props', props)
     event.preventDefault();
     props.dispatch(Login(loginValue, props.history));
     

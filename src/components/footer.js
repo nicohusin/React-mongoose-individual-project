@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { userIdName } from "../actions/index";
+// import { userIdName } from "../actions/index";
 
 class Footer extends Component {
-  componentDidMount() {
-    this.props.getUserAction();
-  }
+  // componentDidMount() {
+  //   this.props.getUserAction();
+  // }
 
   render() {
     return (
@@ -22,15 +22,15 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getUserAction: () => dispatch(userIdName())
-  };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getUserAction: () => dispatch(userIdName())
+//   };
+// };
 
 const connectComponent = connect(
   mapStateToProps,
-  mapDispatchToProps
+  // mapDispatchToProps
 )(Footer);
 
 export default connectComponent;
