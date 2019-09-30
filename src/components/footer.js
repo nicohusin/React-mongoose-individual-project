@@ -1,38 +1,36 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux';
-import { userIdName } from "../actions/index"
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { userIdName } from "../actions/index";
 
 class Footer extends Component {
-
   componentDidMount() {
-    this.props.getUserAction()
+    this.props.getUserAction();
   }
-  
 
   render() {
-    console.log('props', this.props)
     return (
       <div>
-        <label>Copyright by NicoH</label>        
+        <label>Copyright by NicoH</label>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => {
-  
+const mapStateToProps = state => {
   return {
-    userData: state.getUserName.userData,
-    
-  }
-}
+    userData: state.getUserName.userData
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     getUserAction: () => dispatch(userIdName())
-  }
-}
+  };
+};
 
-const connectComponent = connect(mapStateToProps, mapDispatchToProps)(Footer)
+const connectComponent = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Footer);
 
-export default connectComponent
+export default connectComponent;

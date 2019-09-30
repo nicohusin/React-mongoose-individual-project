@@ -66,7 +66,7 @@ function SignUp(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    props.dispatch(Register(signUpValue))
+    props.dispatch(Register(signUpValue, props.history))
   }
 
   function handleChange(event) {
